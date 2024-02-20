@@ -1,0 +1,15 @@
+<aura:component>
+    <aura:attribute name="isRecording" type="Boolean" default="false"/>
+    <aura:attribute name="sequence" type="String" default=""/>
+
+
+<div class="container">
+    <div class="botones" horizontalAlign="center">
+        <lightning:button  label="Record" onclick="{!c.startRecording}" disabled="{!v.isRecording}" class="customButton" />
+        <lightning:button  label="Stop" onclick="{!c.stopRecording}" disabled="{!(v.isRecording)}" class="customButton" />
+        <lightning:button  label="Guardar" onclick="{!c.saveSequence}" disabled="{!v.isRecording}" class="customButton" />
+        <lightning:button  label="Play" onclick="{!c.playSequence}" disabled="{!v.isRecording}"  class="customButton"/>
+    </div>
+
+</div>
+</aura:component>

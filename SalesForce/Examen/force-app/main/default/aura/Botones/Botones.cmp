@@ -1,0 +1,48 @@
+
+
+<aura:component controller="GameManager">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler event="c:GameEvent" action="{!c.handleRecordEvent}"/>
+
+    <aura:attribute name="recordedSequences" type="List" default="[]"/>
+    <aura:attribute name="loadedSequences" type="List" default="[]"/>
+    <aura:attribute name="displayedSequences" type="List" default="[]"/>
+    <aura:attribute name="isRecording" type="Boolean" default="false"/>
+    <aura:attribute name="shouldPlaySequence" type="Boolean" default="false"/>
+    <aura:handler name="change" value="{!v.shouldPlaySequence}" action="{!c.playSequence}"/>
+    <aura:attribute name="clickSequence" type="String" default=""/>
+    <aura:attribute name="showClickSequence" type="Boolean" default="false"/>
+
+    <div class="container">
+        <br/>
+        <br/>
+        <div class="gameTitle" >
+            <p>Juguemos al juego del Examen</p>
+        </div>
+        <br/>
+        <br/>
+    </div>
+    <div class="container">
+        <div class="botones" horizontalAlign="center">
+            <lightning:button aura:id="button1" label="1" onclick="{!c.handleButtonClick}" class="customButton" />
+            <lightning:button aura:id="button0" label="0" onclick="{!c.handleButtonClick}" class="customButton" />
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <div class="container">
+        <div class="mostrarSecuencia">
+            <aura:iteration items="{!v.loadedSequences}" var="sequence" indexVar="index">
+            <div>
+                <p>Secuencia {!index + 1}: {!sequence}</p>
+            </div>
+        </aura:iteration>
+        </div>
+    </div>
+    <div class="container">
+        <aura:iteration items="{!v.displayedSequences}" var="sequence" indexVar="index">
+        <p>Secuencia {!index + 1}: {!sequence}</p>
+        </aura:iteration>
+    </div>
+
+    </aura:component>	

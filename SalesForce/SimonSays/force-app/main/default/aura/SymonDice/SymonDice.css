@@ -1,0 +1,67 @@
+.THIS .container {
+    width: 100%;
+    text-align: center;
+}
+
+.THIS .gameTitle {
+    font-size: 2.5rem; /* Tamaño grande de la fuente */
+    color: #408b43; /* Color del texto */
+    text-align: center; /* Centrar el texto */
+    font-weight: bold; /* Fuente en negrita */
+    text-shadow: 2px 2px 4px #000000; /* Sombra para dar un efecto 3D */
+    margin-bottom: 20px; /* Espacio debajo del título */
+    animation: titleGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+    from {
+        text-shadow: 3px 3px 5px #000000, 0 0 20px #ffdd00, 0 0 30px #ffdd00;
+    }
+    to {
+        text-shadow: 3px 3px 5px #000000, 0 0 25px #b12c04, 0 0 35px #ff5722;
+    }
+}
+
+.THIS .red { background-color: red; }
+.THIS .blue { background-color: blue; }
+.THIS .green { background-color: green; }
+.THIS .yellow { background-color: yellow; }
+
+.THIS .rectangle {
+    width: 100px;
+    height: 100px;
+    margin: 5px auto; 
+    transition: all 0.3s ease;
+}
+
+.THIS .rectangle:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.THIS .rectangle.activeEffect {
+    transform: scale(1.1);
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.THIS .button {
+    align-items: center;
+}
+
+.THIS .customButton {
+    background-color: #4CAF50; /* Color de fondo */
+    color: white; /* Color del texto */
+    padding: 10px 20px; /* Relleno alrededor del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor a una mano para indicar interactividad */
+    font-size: 16px; /* Tamaño del texto */
+    transition: background-color 0.3s ease; /* Transición suave para el efecto hover */
+}
+
+.THIS .customButton:hover {
+    background-color: #357e38; /* Cambia el color de fondo en hover */
+}
+

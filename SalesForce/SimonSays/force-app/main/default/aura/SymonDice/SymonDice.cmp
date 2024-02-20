@@ -1,0 +1,42 @@
+<aura:component>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler event="c:SymonDiceEvent" action="{!c.handleRecordEvent}"/>
+
+    <aura:attribute name="isRecording" type="Boolean" default="false"/>
+    <aura:attribute name="shouldPlaySequence" type="Boolean" default="false"/>
+    <aura:handler name="change" value="{!v.shouldPlaySequence}" action="{!c.playSequence}"/>
+    <aura:attribute name="clickSequence" type="String" default=""/>
+    <aura:attribute name="isActiveRed" type="Boolean" default="false"/>
+    <aura:attribute name="isActiveBlue" type="Boolean" default="false"/>
+    <aura:attribute name="isActiveGreen" type="Boolean" default="false"/>
+    <aura:attribute name="isActiveYellow" type="Boolean" default="false"/>
+
+    
+
+ <div class="container">
+    <br/>
+    <br/>
+    <div class="gameTitle" >
+        <p>Jueguemos a Symon Dice</p>
+    </div>
+    <br/>
+    <br/>
+</div>
+<div class="container">
+    <lightning:layout multipleRows="true" horizontalAlign="center">
+        <lightning:layoutItem size="6" flexibility="auto" padding="around-small">
+            <div aura:id="red" class="{!'rectangle red ' + (v.isActiveRed ? 'activeEffect' : '')}" onclick="{!c.handleRectangleClick}" data-color="red"></div>
+        </lightning:layoutItem>
+        <lightning:layoutItem size="6" flexibility="auto" padding="around-small">
+            <div aura:id="blue" class="{!'rectangle blue ' + (v.isActiveBlue ? 'activeEffect' : '')}" onclick="{!c.handleRectangleClick}" data-color="blue"></div>
+        </lightning:layoutItem>
+        <lightning:layoutItem size="6" flexibility="auto" padding="around-small">
+            <div aura:id="green" class="{!'rectangle green ' + (v.isActiveGreen ? 'activeEffect' : '')}" onclick="{!c.handleRectangleClick}" data-color="green"></div>
+        </lightning:layoutItem>
+        <lightning:layoutItem size="6" flexibility="auto" padding="around-small">
+            <div aura:id="yellow" class="{!'rectangle yellow ' + (v.isActiveYellow ? 'activeEffect' : '')}" onclick="{!c.handleRectangleClick}" data-color="yellow"></div>
+        </lightning:layoutItem>
+    </lightning:layout>
+</div>
+
+</aura:component>	

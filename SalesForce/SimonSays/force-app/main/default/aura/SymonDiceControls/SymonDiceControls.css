@@ -1,0 +1,27 @@
+.THIS .container {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.THIS .botones {
+    display: flex;
+    justify-content: center;
+}
+
+.THIS .customButton {
+    background-color: #4CAF50; 
+    color: white; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 16px; 
+    transition: background-color 0.3s ease; 
+    margin-left: 10px; 
+    width: 150px; 
+}
+
+.THIS .customButton:hover {
+    background-color: #357e38; 
+}

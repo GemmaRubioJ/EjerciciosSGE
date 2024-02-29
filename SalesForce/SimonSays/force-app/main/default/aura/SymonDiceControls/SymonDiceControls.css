@@ -10,18 +10,60 @@
 }
 
 .THIS .customButton {
-    background-color: #4CAF50; 
-    color: white; 
-    padding: 10px 20px; 
-    border: none; 
-    border-radius: 5px; 
-    cursor: pointer; 
-    font-size: 16px; 
-    transition: background-color 0.3s ease; 
-    margin-left: 10px; 
-    width: 150px; 
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-left: 10px;
+    width: 150px;
 }
 
 .THIS .customButton:hover {
-    background-color: #357e38; 
+    background-color: #357e38;
+}
+
+/* Estilo de botón para Jugador 1 */
+.THIS .playerOneButton {
+    background-color: rgb(223, 49, 49);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-left: 10px;
+    width: 150px;
+    /* Cambiar a rojo para jugador 1 */
+}
+
+/* Hover para Jugador 1 */
+.THIS .playerOneButton:hover {
+    background-color: #a92f2f;
+    /* Rojo más oscuro para hover */
+}
+
+/* Estilo de botón para Jugador 2 (opcional si necesitas volver al verde) */
+.THIS .playerTwoButton {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-left: 10px;
+    width: 150px;
+    /* Verde */
+}
+
+/* Hover para Jugador 2 */
+.THIS .playerTwoButton:hover {
+    background-color: #357e38;
+    /* Verde más oscuro para hover */
 }

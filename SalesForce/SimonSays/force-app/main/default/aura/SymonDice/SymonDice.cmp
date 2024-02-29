@@ -1,42 +1,72 @@
 <aura:component>
-    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
-    <aura:handler event="c:SymonDiceEvent" action="{!c.handleRecordEvent}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler event="c:SymonDiceEvent" action="{!c.handleRecordEvent}" />
 
-    <aura:attribute name="isRecording" type="Boolean" default="false"/>
-    <aura:attribute name="shouldPlaySequence" type="Boolean" default="false"/>
-    <aura:handler name="change" value="{!v.shouldPlaySequence}" action="{!c.playSequence}"/>
-    <aura:attribute name="clickSequence" type="String" default=""/>
-    <aura:attribute name="isActiveRed" type="Boolean" default="false"/>
-    <aura:attribute name="isActiveBlue" type="Boolean" default="false"/>
-    <aura:attribute name="isActiveGreen" type="Boolean" default="false"/>
-    <aura:attribute name="isActiveYellow" type="Boolean" default="false"/>
+    <aura:attribute name="showModal" type="Boolean" default="false" />
+    <aura:attribute name="modalMessage" type="String" default="" />
 
-    
+    <aura:attribute name="playerOneSequence" type="String" default="" />
+    <aura:attribute name="playerTwoSequence" type="String" default="" />
+    <aura:attribute name="playerOneScore" type="Integer" default="0" />
+    <aura:attribute name="playerTwoScore" type="Integer" default="0" />
+    <aura:attribute name="currentPlayer" type="Integer" default="1" />
 
- <div class="container">
-    <br/>
-    <br/>
-    <div class="gameTitle" >
-        <p>Jueguemos a Symon Dice</p>
+    <aura:attribute name="isRecording" type="Boolean" default="false" />
+    <aura:attribute name="shouldPlaySequence" type="Boolean" default="false" />
+    <aura:handler name="change" value="{!v.shouldPlaySequence}" action="{!c.playSequence}" />
+
+    <aura:attribute name="clickSequence" type="String" default="" />
+    <aura:attribute name="isActiveRed" type="Boolean" default="false" />
+    <aura:attribute name="isActiveBlue" type="Boolean" default="false" />
+    <aura:attribute name="isActiveGreen" type="Boolean" default="false" />
+    <aura:attribute name="isActiveYellow" type="Boolean" default="false" />
+
+    <aura:attribute name="isOpen" type="Boolean" default="false" />
+    <aura:attribute name="title" type="String" />
+    <aura:attribute name="message" type="String" />
+
+
+    <c-myModal isOpen="{!v.isOpen}" title="My Modal Title" message="This is a modal message."></c-myModal>
+
+    <div class="container">
+        <br />
+        <br />
+        <div class="gameTitle">
+            <h3>Jueguemos a Symon Dice</h3>
+        </div>
+        <br />
+        <br />
     </div>
-    <br/>
-    <br/>
-</div>
-<div class="container">
-    <lightning:layout multipleRows="true" horizontalAlign="center">
-        <lightning:layoutItem size="6" flexibility="auto" padding="around-small">
-            <div aura:id="red" class="{!'rectangle red ' + (v.isActiveRed ? 'activeEffect' : '')}" onclick="{!c.handleRectangleClick}" data-color="red"></div>
-        </lightning:layoutItem>
-        <lightning:layoutItem size="6" flexibility="auto" padding="around-small">
-            <div aura:id="blue" class="{!'rectangle blue ' + (v.isActiveBlue ? 'activeEffect' : '')}" onclick="{!c.handleRectangleClick}" data-color="blue"></div>
-        </lightning:layoutItem>
-        <lightning:layoutItem size="6" flexibility="auto" padding="around-small">
-            <div aura:id="green" class="{!'rectangle green ' + (v.isActiveGreen ? 'activeEffect' : '')}" onclick="{!c.handleRectangleClick}" data-color="green"></div>
-        </lightning:layoutItem>
-        <lightning:layoutItem size="6" flexibility="auto" padding="around-small">
-            <div aura:id="yellow" class="{!'rectangle yellow ' + (v.isActiveYellow ? 'activeEffect' : '')}" onclick="{!c.handleRectangleClick}" data-color="yellow"></div>
-        </lightning:layoutItem>
-    </lightning:layout>
-</div>
+    <div class="container">
+        <lightning:layout multipleRows="true" horizontalAlign="center">
+            <lightning:layoutItem size="6" flexibility="auto" padding="around-small">
+                <div aura:id="red" class="{!'rectangle red ' + (v.isActiveRed ? 'activeEffect' : '')}"
+                    onclick="{!c.handleRectangleClick}" data-color="red"></div>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="6" flexibility="auto" padding="around-small">
+                <div aura:id="blue" class="{!'rectangle blue ' + (v.isActiveBlue ? 'activeEffect' : '')}"
+                    onclick="{!c.handleRectangleClick}" data-color="blue"></div>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="6" flexibility="auto" padding="around-small">
+                <div aura:id="green" class="{!'rectangle green ' + (v.isActiveGreen ? 'activeEffect' : '')}"
+                    onclick="{!c.handleRectangleClick}" data-color="green"></div>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="6" flexibility="auto" padding="around-small">
+                <div aura:id="yellow" class="{!'rectangle yellow ' + (v.isActiveYellow ? 'activeEffect' : '')}"
+                    onclick="{!c.handleRectangleClick}" data-color="yellow"></div>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </div>
+    <div class="container">
+        <div class="botones" horizontalAlign="center">
+            <lightning:button label="Turno Jugador 1" onclick="{!c.startPlayerOneTurn}" class="customButton1" />
+            <lightning:button label="Turno Jugador 2" onclick="{!c.startPlayerTwoTurn}" class="customButton" />
+        </div>
+    </div>
+    <div class="container">
+        <p>Jugador 1 --- Puntaje: {!v.playerOneScore}</p>
+        <p>Jugador 2 --- Puntaje: {!v.playerTwoScore}</p>
+        <p>Turno actual: JUGADOR {!v.currentPlayer}</p>
+    </div>
 
-</aura:component>	
+</aura:component>

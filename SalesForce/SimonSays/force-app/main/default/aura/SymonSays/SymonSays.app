@@ -3,4 +3,4 @@
 <br/>
 <br/>
 <c:SymonDiceControls/>
-</aura:application>	
+</aura:application>

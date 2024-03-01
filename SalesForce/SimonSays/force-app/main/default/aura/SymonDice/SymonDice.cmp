@@ -21,12 +21,8 @@
     <aura:attribute name="isActiveGreen" type="Boolean" default="false" />
     <aura:attribute name="isActiveYellow" type="Boolean" default="false" />
 
-    <aura:attribute name="isOpen" type="Boolean" default="false" />
-    <aura:attribute name="title" type="String" />
-    <aura:attribute name="message" type="String" />
+    <c:Util_ModalWindow isHidden="{!v.showModal}" title="Resultado" message="{!v.modalMessage}" />
 
-
-    <c-myModal isOpen="{!v.isOpen}" title="My Modal Title" message="This is a modal message."></c-myModal>
 
     <div class="container">
         <br />
@@ -60,6 +56,7 @@
     <div class="container">
         <div class="botones" horizontalAlign="center">
             <lightning:button label="Turno Jugador 1" onclick="{!c.startPlayerOneTurn}" class="customButton1" />
+            <lightning:button label="Comprobar" onclick="{!c.validateAndShowModal}" class="customButton1" />
             <lightning:button label="Turno Jugador 2" onclick="{!c.startPlayerTwoTurn}" class="customButton" />
         </div>
     </div>

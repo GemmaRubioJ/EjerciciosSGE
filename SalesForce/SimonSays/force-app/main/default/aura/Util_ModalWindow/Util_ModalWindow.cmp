@@ -1,0 +1,33 @@
+<aura:component>
+    <!-- Atributos para el control del modal -->
+    <aura:attribute name="isHidden" type="Boolean" default="true" />
+    <aura:attribute name="title" type="String" default="Título del Modal" />
+    <aura:attribute name="message" type="String" default="Este es el mensaje del modal." />
+
+    <!-- Backdrop -->
+    <div class="slds-backdrop slds-backdrop_open cLIModalWindow"></div>
+    <!-- Modal -->
+    <aura:if isTrue="{!not(v.isHidden)}">
+        <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open" aria-modal="true">
+            <div class="slds-modal__container">
+                <!-- Cabecera del Modal -->
+                <div class="slds-modal__header">
+                    <h2 class="slds-text-heading--medium">{!v.title}</h2>
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                        title="Close" onclick="{!c.defaultCloseAction}">
+                        <span class="slds-icon_container">
+                            <lightning:icon iconName="utility:close" size="small" variant="inverse" />
+                        </span>
+                        <span class="slds-assistive-text">Cerrar</span>
+                    </button>
+                </div>
+                <!-- Contenido del Modal -->
+                <div class="slds-modal__content slds-p-around--medium">
+                    <p>{!v.message}</p>
+                </div>
+                <!-- Pie de página del Modal, opcional si solo quieres un botón de cerrar -->
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>
+</aura:component>

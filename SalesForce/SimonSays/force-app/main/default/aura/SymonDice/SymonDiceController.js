@@ -103,8 +103,7 @@
                 component.set("v.playerOneSequence", clickSequence);
             } else if (currentPlayer === 2) {
                 component.set("v.playerTwoSequence", clickSequence);
-                // Llama a validatePlayerTwoSequence para comparar las secuencias
-                helper.validatePlayerTwoSequence(component);
+
             }
 
             component.set("v.isRecording", false);
@@ -114,9 +113,16 @@
         }
     },
 
-    closeModal: function (component, event, helper) {
-        console.log("CERRANDO Modal");
-        component.set("v.showModal", false); // Asegúrate de que esta variable controle la visibilidad del modal
+    validateAndShowModal: function (component, event, helper) {
+        // Invoca el método del helper para validar la secuencia del jugador 2
+        helper.validatePlayerTwoSequence(component);
+    },
+
+    showModal: function (component, event, helper) {
+        var message = event.getParam("message");
+        // Aquí debes establecer las propiedades para mostrar tu modal y pasar el mensaje
+        component.set("v.showModal", true);
+        component.set("v.modalMessage", message);
     }
 
 })
